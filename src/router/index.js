@@ -109,7 +109,44 @@ export const asyncRoutes = [
         path: 'index',
         component: () => import('@/views/test/index'),
         name: 'TestIndex',
-        meta: { title: '测试页面', icon: 'skill', noCache: true, roles: ['admin'] }
+        meta: { title: '测试页面', icon: 'skill', noCache: true, roles: ['user'] }
+      }
+    ]
+  },
+  // 健康自测
+  {
+    path: '/selftest',
+    component: Layout,
+    redirect: '/test/index',
+    hidden: false,
+    children: [
+      {
+        path: 'SelfTestIndex',
+        component: () => import('@/views/selftest/index'),
+        name: 'SelfTestIndex',
+        meta: { title: '健康自测', icon: 'skill', noCache: true, roles: ['user'] }
+      }
+    ]
+  },
+  // 预约
+  {
+    path: '/appointment',
+    component: Layout,
+    redirect: '/test/index',
+    hidden: false,
+    meta: { title: '预约', icon: 'skill', noCache: true, roles: ['user'] },
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/test/index'),
+        name: 'TestIndex',
+        meta: { title: '测试页面', icon: 'skill', noCache: true, roles: ['user'] }
+      },
+      {
+        path: 'address',
+        component: () => import('@/views/appointment/address'),
+        name: 'addressIndex',
+        meta: { title: '献血地点查看', icon: 'skill', noCache: true, roles: ['user'] }
       }
     ]
   },

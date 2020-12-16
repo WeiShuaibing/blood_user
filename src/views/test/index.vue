@@ -7,7 +7,7 @@
 <script>
 import { testInfo } from '@/api/test'
 export default {
-  name: "TextIndex",
+  name: 'TextIndex',
   data() {
     return {
       msg: ''
