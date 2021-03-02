@@ -98,18 +98,33 @@ export const constantRoutes = [
  * the routes that need to be dynamically loaded based on user roles
  */
 export const asyncRoutes = [
-  // 测试页面
+  // 我的献血状态
   {
-    path: '/test',
+    path: '/myblood',
     component: Layout,
-    redirect: '/test/index',
+    redirect: '/myblood/index',
     hidden: false,
     children: [
       {
-        path: 'index',
-        component: () => import('@/views/test/index'),
-        name: 'TestIndex',
-        meta: { title: '测试页面', icon: 'skill', noCache: true, roles: ['user'] }
+        path: 'MyloodIndex',
+        component: () => import('@/views/myblood/index'),
+        name: 'MyloodIndex',
+        meta: { title: '我的献血', icon: 'skill', noCache: true, roles: ['user'] }
+      }
+    ]
+  },
+  // 我的献血详细信息
+  {
+    path: '/bloodrecord',
+    component: Layout,
+    redirect: '/bloodrecord/index',
+    hidden: false,
+    children: [
+      {
+        path: 'BloodRecordIndex',
+        component: () => import('@/views/bloodrecord/index'),
+        name: 'BloodRecordIndex',
+        meta: { title: '献血信息', icon: 'skill', noCache: true, roles: ['user'] }
       }
     ]
   },
@@ -117,7 +132,7 @@ export const asyncRoutes = [
   {
     path: '/selftest',
     component: Layout,
-    redirect: '/test/index',
+    redirect: '/selftest/index',
     hidden: false,
     children: [
       {
@@ -132,15 +147,15 @@ export const asyncRoutes = [
   {
     path: '/appointment',
     component: Layout,
-    redirect: '/test/index',
+    redirect: '/appointment/index',
     hidden: false,
     meta: { title: '预约', icon: 'skill', noCache: true, roles: ['user'] },
     children: [
       {
-        path: 'index',
-        component: () => import('@/views/test/index'),
-        name: 'TestIndex',
-        meta: { title: '测试页面', icon: 'skill', noCache: true, roles: ['user'] }
+        path: 'yuyue',
+        component: () => import('@/views/appointment/yuyue'),
+        name: 'Yuyue',
+        meta: { title: '我要预约', icon: 'skill', noCache: true, roles: ['user'] }
       },
       {
         path: 'address',
@@ -150,6 +165,23 @@ export const asyncRoutes = [
       }
     ]
   },
+
+  // 电子献血证
+  {
+    path: '/zhengming',
+    component: Layout,
+    redirect: '/zhengming/index',
+    hidden: false,
+    children: [
+      {
+        path: 'ZhengmingIndex',
+        component: () => import('@/views/zhengming/index'),
+        name: 'ZhengmingIndex',
+        meta: { title: '献血证', icon: 'skill', noCache: true, roles: ['user'] }
+      }
+    ]
+  },
+
   {
     path: '/error',
     component: Layout,

@@ -99,3 +99,10 @@ export function searchByName(matchStr) {
     }
   })
 }
+
+export function getBloodInfo() {
+  return request({
+    url: BASE_URL + 'user/getBloodInfo',
+    method: 'GET'
+  })
+}
